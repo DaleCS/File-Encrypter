@@ -1,10 +1,39 @@
 <?php
+function rc4($key, $plainText) {
+    $s = array();
+    $k = array();
+    for ($i = 0; $i < 256; $i++) {
+        $s[$i] = $i;
+        $k[$i] = ord($key[$i % strlen($key)]);
+    }
 
-/*
-    Unfinished code for decryptoid encryption functionality
-*/
-$cipherText = encryptRot(1, "odjfasdjfjsdmf dkaowefoiklnlkwadnawmdaklwmd, nioawndioanwndlkanwdolkanwdkl");
-echo decryptRot(1, $cipherText);
+    $j = 0;
+    for ($i = 0; $i < 256; $i++) {
+        $j = ($j + $s[$i] + $k[$i]) % 256;
+        $temp = $s[$i];
+        $s[$i] = $s[$j];
+        $s[$j] = $temp;
+    }
+
+    $i = 0;
+    $j = 0;
+
+    $cipherText = "";
+    for ($a = 0; $a < strlen($plainText); $a++) {
+        $i = ($i + 1) % 256;
+        $j = ($j + $s[$i]) % 256;
+
+        $temp = $s[$i];
+        $s[$i] = $s[$j];
+        $s[$j] = $temp;
+
+        $byte = $s[($s[$i] + $s[$j]) % 256];
+        $cipherText .= $plainText[$a] ^ chr($byte);
+    }
+
+    $s = array();
+    return $cipherText;
+}
 
 function encryptRot($rot, $plainText) {
     for ($i = 0; $i < strlen($plainText); $i++) {
@@ -126,5 +155,4 @@ function printArray($arr) {
     }
     echo "]";
 }
-
 ?>
