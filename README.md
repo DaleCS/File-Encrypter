@@ -1,6 +1,6 @@
 # File-Encrypter
 
-Encrypts/Decrypts text files using various crypto algorithms
+Simple web application that lets users encrypt/decrypt text files using various crypto algorithms
 
 # Important note:
 
