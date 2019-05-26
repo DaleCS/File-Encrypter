@@ -1,0 +1,354 @@
+#largeFontInfo {
+  font-weight: bold;
+  font-size: 60px;
+  color: #1c618f;
+  margin: 0;
+  margin-top: 55px;
+  margin-bottom: 55px;
+  padding: 0;
+}
+
+#iconName {
+  background-color: #1c618f;
+  color: #ecf0f1;
+  border-radius: 100px;
+  cursor: pointer;
+  margin: 0;
+  padding: 10px;
+}
+
+#navbar {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #2980b9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  padding: 10px;
+}
+
+#inputBox {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #2980b9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#textareaPost {
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+  color: #ecf0f1;
+  border: solid;
+  border-color: #1c618f;
+  border-width: 2px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#textareaPost:focus {
+  outline: 0;
+}
+
+#ownership {
+  font-weight: bold;
+  color: #1c618f;
+}
+
+textarea::placeholder {
+  color: #5aa5d6;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ecf0f1;
+  margin: 0;
+  padding: 0;
+}
+
+.dark-box {
+  box-sizing: border-box;
+  background-color: #2980b9;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin: 0;
+  padding: 10px;
+}
+
+.shadow-box {
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin: 0;
+  padding: 10px;
+}
+
+.shadow {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.dark-background {
+  background-color: #1c618f;
+}
+
+.border-0 {
+  border: none;
+}
+
+.border-radius-10 {
+  border-radius: 10px;
+}
+
+.border-radius-5 {
+  border-radius: 5px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-10 {
+  width: 10%;
+}
+
+.w-5 {
+  width: 5%;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.border-bot-2 {
+  border-bottom: 2px solid black;
+}
+
+.border-2 {
+  border: 2px solid black;
+}
+
+.p-10 {
+  padding: 10;
+}
+
+.p-5 {
+  padding: 5;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.pl-10 {
+  padding-left: 10px;
+}
+
+.pr-10 {
+  padding-right: 10px;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.page-margins {
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
+.font-weight-normal {
+  font-weight: normal;
+}
+
+.button {
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #1c618f;
+  color: #ecf0f1;
+  padding: 10px;
+}
+
+.button-small {
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #1c618f;
+  color: #ecf0f1;
+  padding: 5px;
+}
+
+.outline-0 {
+  outline: 0;
+}
+
+.button:hover {
+  cursor: pointer;
+  animation-name: button-change-color-onHover;
+  animation-duration: 100ms;
+  animation-fill-mode: forwards;
+}
+
+.button-small:hover {
+  cursor: pointer;
+  animation-name: button-change-color-onHover;
+  animation-duration: 100ms;
+  animation-fill-mode: forwards;
+}
+
+.button:focus {
+  outline: 0;
+  background-color: #3498db;
+}
+
+.button-small:focus {
+  outline: 0;
+  background-color: #3498db;
+}
+
+.main-background-color {
+  background-color: #2980b9;
+}
+
+.dark-background-color {
+  background-color: #1c618f;
+}
+
+.dark-color {
+  color: #1c618f;
+}
+
+.light-color {
+  color: #ecf0f1;
+}
+
+.error-color {
+  color: #c0392b;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 100ms;
+  animation-fill-mode: forwards;
+}
+
+/* Animations */
+@keyframes button-change-color-onHover {
+  0% {
+    background-color: #1c618f;
+  }
+  100% {
+    background-color: #3498db;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.white-space-prewrap {
+  white-space: pre-wrap;
+}
+
+.disabled-color {
+  background-color: #7f8c8d;
+  color: #1c618f;
+}

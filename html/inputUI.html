@@ -1,0 +1,99 @@
+<!DOCTYPE HTML5>
+<html>
+  <div class="d-flex row justify-content-center align-items-center">
+    <div id="inputBox">
+      <form
+        id="postForm"
+        method="post"
+        action="home.php"
+        enctype="multipart/form-data"
+        class="d-flex column justify-content-center align-items-center m-0"
+      >
+        <div
+          class="w-auto align-self-start d-flex row justify-content-center align-items-center m-0 mb-20 p-10"
+        >
+          <div
+            class="d-flex row align-items-center dark-background border-radius-5 m-0 p-10"
+          >
+            <h5 class="font-weight-normal m-0 p-0">
+              What do you want to do?
+            </h5>
+            <select
+              id="activitySelect"
+              name="activitySelect"
+              class="w-auto m-0 ml-10 p-0"
+            >
+              <option value="encrypt">Encrypt</option>
+              <option value="decrypt">Decrypt</option>
+            </select>
+          </div>
+          <div
+            class="d-flex row align-items-center dark-background border-radius-5 m-0 ml-10 p-10"
+          >
+            <h5 class="font-weight-normal m-0 p-0">
+              Algorithm:
+            </h5>
+            <select
+              id="algorithmSelect"
+              name="algorithmSelect"
+              class="w-auto m-0 ml-10 p-0"
+            >
+              <option value="simple_substitution">Simple substitution</option>
+              <option value="double_transposition">Double transposition</option>
+              <option value="rc4">RC4</option>
+            </select>
+          </div>
+        </div>
+        <div class="dark-background border-radius-5 p-10">
+          <input
+            id="fileUpload"
+            type="file"
+            name="fileUpload"
+            accept=".txt"
+            onChange="deactivateTextarea()"
+          />
+        </div>
+        <div
+          class="w-100 d-flex row justify-content-center align-items-center m-0 p-0"
+        >
+          <hr class="w-5 m-0 p-0 dark-color" />
+          <p class="mr-10 ml-10 p-0">or</p>
+          <hr class="w-5 m-0 p-0 dark-color" />
+        </div>
+        <textarea
+          id="textareaPost"
+          name="textareaPost"
+          form="postForm"
+          placeholder="Write your text here..."
+          rows="10"
+          onChange="deactivateFileUpload()"
+          class="dark-background-color"
+        ></textarea>
+        <div
+          class="d-flex row justify-content-center align-items-center m-0 mt-10 p-5"
+        >
+          <p class="light-color align-items-center m-0 mr-10">
+            Title your post:
+          </p>
+          <input
+            id="titlePost"
+            name="titlePost"
+            type="text"
+            maxlength="100"
+            class="dark-background-color light-color border-0 border-radius-5 outline-0 m-0 mr-10 p-10"
+          />
+          <button
+            id="postButton"
+            name="postButton"
+            type="button"
+            onClick="validatePost()"
+            class="button"
+          >
+            Submit
+          </button>
+        </div>
+        <input name="postButtonPressed" type="hidden" value="1" />
+      </form>
+    </div>
+  </div>
+</html>

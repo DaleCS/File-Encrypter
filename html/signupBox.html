@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <form
+    id="signupForm"
+    method="post"
+    action="signupPage.php"
+    class="d-flex column justify-content-center m-0"
+  >
+    <h5 class="font-weight-bold light-color m-0 mb-5">Email:</h5>
+    <input
+      name="emailSignup"
+      type="text"
+      maxlength="254"
+      class="w-100 dark-background light-color border-0 border-radius-5 m-0 mb-20 p-5 pl-10 pr-10 outline-0"
+    />
+    <h5 class="font-weight-bold light-color m-0 mb-5">Username:</h5>
+    <input
+      name="usernameSignup"
+      type="text"
+      maxlength="32"
+      class="w-100 dark-background light-color border-0 border-radius-5 m-0 mb-20 p-5 pl-10 pr-10 outline-0"
+    />
+    <h5 class="font-weight-bold light-color m-0 mb-5">Password:</h5>
+    <input
+      name="passwordSignup"
+      type="password"
+      maxlength="128"
+      class="w-100 dark-background light-color border-0 border-radius-5 m-0 mb-20 p-5 pl-10 pr-10 outline-0"
+    />
+    <input name="signupButtonPressed" type="hidden" value="1" />
+    <button
+      type="button"
+      onClick="validateSignupInput()"
+      class="w-auto button-small align-self-end m-0"
+    >
+      Sign up
+    </button>
+  </form>
+</html>
