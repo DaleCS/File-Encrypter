@@ -1,9 +1,4 @@
 <?php
-
-/*
-    Unfinished code for decryptoid encryption functionality
-*/
-
 function rc4($key, $plainText) {
     $s = array();
     $k = array();
@@ -160,5 +155,4 @@ function printArray($arr) {
     }
     echo "]";
 }
-
 ?>
