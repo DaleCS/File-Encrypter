@@ -197,6 +197,22 @@ emailAlreadyInUse = () => {
   pErrorElement.classList.add("fadeIn");
 };
 
+validateKeyRot = () => {};
+
+selectKeyOrRot = () => {
+  let selectElement = document.getElementById("algorithmSelect");
+  let selectElementValue = selectElement.value;
+  let prompt = document.getElementById("keyPrompt");
+  if (
+    selectElementValue == "double_transposition" ||
+    selectElementValue == "rc4"
+  ) {
+    prompt.textContent = "Key: ";
+  } else if (selectElementValue == "simple_substitution") {
+    prompt.textContent = "Rot: ";
+  }
+};
+
 // Deactivates text area when the user chooses to submit a file
 deactivateTextarea = () => {
   let textarea = document.getElementById("textareaPost");
