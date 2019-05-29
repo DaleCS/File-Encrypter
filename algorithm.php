@@ -32,6 +32,7 @@ function rc4($key, $plainText) {
     }
 
     $s = array();
+    $k = array();
     return $cipherText;
 }
 
