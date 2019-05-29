@@ -94,13 +94,13 @@ validatePost = () => {
 
   errors += validateTitle();
   errors += validateText();
+  errors += validateKeyRot();
 
   if (errors.length > 0) {
     let pErrorElement = document.getElementById("postErrors");
     pErrorElement.textContent = errors;
     pErrorElement.classList.add("fadeIn");
   } else {
-    // TODO: Do encryption here
     form.submit();
   }
 };
@@ -120,7 +120,6 @@ validateActivity = () => {
         return false;
     }
   } catch (err) {
-    console.log("catch activity");
     return false;
   }
 };
@@ -142,7 +141,6 @@ validateAlgorithm = () => {
         return false;
     }
   } catch (err) {
-    console.log("catch algorithm");
     return false;
   }
 };
@@ -197,11 +195,34 @@ emailAlreadyInUse = () => {
   pErrorElement.classList.add("fadeIn");
 };
 
-validateKeyRot = () => {};
+// Validates user input for key or rot field
+validateKeyRot = () => {
+  let selectElementValue = document.getElementById("algorithmSelect").value;
+  let keyField = document.getElementById("keyPost").value;
 
+  if (keyField.length == 0) {
+    return "*Please enter a key or rot";
+  }
+
+  if (
+    selectElementValue == "double_transposition" ||
+    selectElementValue == "rc4"
+  ) {
+    return "";
+  } else if (selectElementValue == "simple_substitution") {
+    if (/[\d]+/.test(keyField)) {
+      return "";
+    } else {
+      return "*Rot keys must be numerical";
+    }
+  } else {
+    return "Invalid select value for algorithm";
+  }
+};
+
+// Changes key or rot prompt based on chosen algorithm
 selectKeyOrRot = () => {
-  let selectElement = document.getElementById("algorithmSelect");
-  let selectElementValue = selectElement.value;
+  let selectElementValue = document.getElementById("algorithmSelect").value;
   let prompt = document.getElementById("keyPrompt");
   if (
     selectElementValue == "double_transposition" ||
