@@ -10,6 +10,7 @@ require_once("login.php");
 
 // Acquire utility functions
 require_once("utilityFunctions.php");
+require_once("algorithm.php");
 
 // Set up session
 setupSession();
@@ -59,15 +60,18 @@ function validateThenUploadUserInput($conn, $content) {
     $sanitizedActivity = isset($_POST["activitySelect"]) ? sanitizeMySQL($conn, $_POST["activitySelect"]) : "";
     $sanitizedAlgorithm = isset($_POST["algorithmSelect"]) ? sanitizeMySQL($conn, $_POST["algorithmSelect"]) : "";
     $sanitizedTitle = isset($_POST["titlePost"]) ? sanitizeMySQL($conn, $_POST["titlePost"]) : "";
+    $sanitizedKey = isset($_POST["keyPost"]) ? sanitizeMySQL($conn, $_POST["keyPost"]) : "";
 
     date_default_timezone_set("America/Los_Angeles");
     $timestamp = date("m/d/Y") . " at " . date("h:ia");
     
     $author_email = $_SESSION["email"];
 
-    if (validateActivity($sanitizedActivity) && validateAlgorithm($sanitizedAlgorithm) && validateTextContent($content)) {
+    if (validateActivity($sanitizedActivity) && validateAlgorithm($sanitizedAlgorithm) && validateTextContent($content) && validateKeyOrRot($sanitizedKey)) {
+        $cryptoContent = applyCrypto($sanitizedActivity, $sanitizedAlgorithm, $sanitizedContent, $sanitizedKey);
+
         $stmt = $conn->prepare("INSERT INTO posts VALUES(?,?,?,?,?,?)");
-        $stmt->bind_param('ssssss', $author_email, $sanitizedTitle, $sanitizedAlgorithm, $sanitizedActivity, $timestamp, $sanitizedContent);
+        $stmt->bind_param('ssssss', $author_email, $sanitizedTitle, $sanitizedAlgorithm, $sanitizedActivity, $timestamp, $cryptoContent);
         $stmt->execute();
         $stmt->close();
         echo "<meta http-equiv='refresh' content='0'>";
@@ -116,6 +120,52 @@ function validateTextContent($content) {
         return true;
     } else {
         return false;
+    }
+}
+
+
+// Server-side validates the key submitted by user
+function validateKeyOrRot($key) {
+    if (strlen($key) <= 0) {
+        echo "Key is empty";
+        return false;
+    }
+
+    if (isset($_POST["algorithmSelect"]) && $_POST["algorithmSelect"] == "simple_substitution") {
+        $keyRegex = "/[\d]+/";
+        if (preg_match($keyRegex, $key)) {
+            return true;
+        } else {
+            echo "Invalid key";
+            return false;
+        }
+    } else {
+        return true;
+    }
+}
+
+function applyCrypto($activity, $algorithm, $content, $key) {
+    switch ($algorithm) {
+        case "simple_substitution":
+            if ($activity == "encrypt") {
+                return encryptRot($key, $content);
+            } else if ($activity == "decrypt") {
+                return decryptRot($key, $content);
+            }
+            break;
+        case "double_transposition":
+            if ($activity == "encrypt") {
+                return encryptDoubleTransposition($key, $key, $content);
+            } else if ($activity == "decrypt") {
+                return decryptDoubleTransposition($key, $key, $content);
+            }
+            break;
+        case "rc4":
+            return rc4($key, $content);
+            break;
+        default:
+            return "";
+            break;
     }
 }
 
